@@ -1,0 +1,56 @@
+{% extends 'academico/base.html' %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h2>Edición del curso</h2>
+
+    <div class="card">
+      <div class="card-body">
+        <form action="/patch-curso/" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtCodigo"
+              value="{{ curso.codigo }}"
+              name="txtCodigo"
+              class="form-control"
+              placeholder="Código..."
+              required
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="txtNombre"
+              value="{{ curso.nombre }}"
+              name="txtNombre"
+              class="form-control"
+              placeholder="Nombre del curso..."
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="numCreditos"
+              value="{{ curso.creditos }}"
+              name="numCreditos"
+              class="form-control"
+              placeholder="Créditos"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-block text-white">
+              Guardar Cambios
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+{% endblock body %}
